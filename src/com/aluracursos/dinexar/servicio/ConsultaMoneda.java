@@ -1,4 +1,4 @@
-package com.aluracursos.dinexar.util;
+package com.aluracursos.dinexar.servicio;
 
 import com.google.gson.Gson;
 

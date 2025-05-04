@@ -1,6 +1,7 @@
-package com.aluracursos.dinexar.servicio;
+package com.aluracursos.dinexar.modelo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Conversion {
     private final String origen;
@@ -19,8 +20,10 @@ public class Conversion {
 
     @Override
     public String toString() {
-        return String.format("%s → %s: %.2f → %.2f (Realizado el %s)",
-                origen, destino, monto, resultado, timestamp);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy, HH:mm:ss");
+        String formattedTimestamp = timestamp.format(formatter);
+
+        return String.format("Conversión de %s = %.2f → %s = %.2f (Realizado el %s)",
+                origen, monto, destino, resultado, formattedTimestamp);
     }
 }
-
